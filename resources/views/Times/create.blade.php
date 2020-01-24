@@ -4,12 +4,22 @@
 
 
 @section ('body')
-
+    
     <div class=" containertable w3-twothird">
       <div class=" bodertable w3-container w3-card w3-white w3-margin-bottom w3-light-grey w3-border w3-border-black">
         <h2 class="w3-text-grey w3-center w3-padding-16"><i class="fas fa-user-plus fa-fw w3-margin-right w3-xxlarge w3-text-teal">          
         </i>Registro de Actividades MDA</h2>
         <hr class="Separete">
+
+        <div class="container w3-center">
+             <button type="sumbit" class="bott1 w3-button w3-padding-large w3-blue-grey" id="Guardar">
+             <i class="fas fa-plus-circle w3-margin-right"></i>Aumentar Fila.
+             </button>
+             <a href="" class="bott w3-button w3-padding-large w3-blue-grey">
+            <i class="fa fa-trash w3-margin-right "></i>Borrar Fila.  
+             </a>
+         </div>
+
         <br>                            
                <table class="tableEmployes table w3-border w3-border-black ">
                 <thead  class="w3-border w3-border-black">
@@ -65,7 +75,7 @@
                     <td class="w3-center"><br><input type="time" style="color: black;" name="timeOn" size="10px;"></td>  
                     <td class="w3-center"><br><input type="time" style="color: black;" name="timeOf" size="7px;"></td>  
                     <td class="w3-center"><br><input type="date" style="color: black;"   name="date" size="7px;"></td>  
-                    <td class="w3-center"><br><input type="text" name="numAct" size="7px;"></td>  
+                    <td class="w3-center"><br><input type="text" name="numAct" style="color: black;" size="7px;"></td>  
                     <td class="w3-center">
                         <br><button class="btn btn-xs glyphicon glyphicon-floppy-saved fa-lg" style="color: black"></button><br>                 	
                     </td>  

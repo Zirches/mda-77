@@ -17,13 +17,15 @@
   }
 
   .bodertable{
-    border: 2px solid red;
-    border-radius: 5px;
-    box-shadow: 5px -5px 0 2px #444; 
+   background-color: #00cc00;
+   color: #fff;
+   box-shadow: 5px 10px 8px 10px #cccccc;
+   border-radius: 5px;
+
   }
 
   .tableEmployes thead{
-  	background: #003329;
+  	background: #006622;
   }
 
   .tableEmployes tbody{
@@ -31,18 +33,33 @@
   	height: 5%;
   }
 
-
-  .tableEmployes tbody:hover{
-  	background: #e6ffff;
-  }
-  
   .tableEmployes input[type=text]:focus{
-  	background: #e6ffff;
+    border-color: #000000;
+  }
+
   }
   .tableEmployes input[type=text]:hover{
-  	background: #ccfff5;
+
+    border-color: #000000;
   }
 
+.Separete{
+  background: #000000;
+}
+.ContainerBu{
+}
+
+.bott1{
+  margin-left: 230px;
+}
+
+.bott2{
+  width: 100px;
+  height: 45px;
+  align-content: center;
+  margin-left: 150%;
+  text-align: center;
+}
 
 
 </style>

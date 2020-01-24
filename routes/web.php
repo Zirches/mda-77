@@ -27,7 +27,7 @@ Route::get('fotos', function(){
 });
 Route::get('Layouts/index', 'timesController@index')->name('WelcomeMDA');
 
-Route::get('Layouts/create', 'timesController@showTable')->name('InsertAct');
+Route::get('Layouts/create', 'timesController@showTable')->name('Insert');
 
 
 
