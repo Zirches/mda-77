@@ -1,0 +1,48 @@
+<style>
+  .bodyPage{
+    padding-top: 5%;
+  }
+
+  .tableEmployes{
+  	width: 100%;
+  	
+  	color: #ffffff;
+  	border-color: #1a0000;
+  }
+  .containertable{
+  	width: 98%;
+  	padding-top: 5%;
+  	padding-left: 2%;
+  	padding-right: center;
+  }
+
+  .bodertable{
+    border: 2px solid red;
+    border-radius: 5px;
+    box-shadow: 5px -5px 0 2px #444; 
+  }
+
+  .tableEmployes thead{
+  	background: #003329;
+  }
+
+  .tableEmployes tbody{
+  	background: #ffffff;
+  	height: 5%;
+  }
+
+
+  .tableEmployes tbody:hover{
+  	background: #e6ffff;
+  }
+  
+  .tableEmployes input[type=text]:focus{
+  	background: #e6ffff;
+  }
+  .tableEmployes input[type=text]:hover{
+  	background: #ccfff5;
+  }
+
+
+
+</style>
