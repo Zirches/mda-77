@@ -12,26 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Times.create');
 });
 
-// Route::get('fotos/{numero?}', function($numero = 'sin numero'){
-// 	return 'Estas en la galeria de fotos:' .$numero;
-// })->where('numero', '[0,9]+');
-
-// Route::view('galeria', 'fotos', ['numero' =>125]);
 
 
-Route::get('fotos', function(){
-	return view('Layouts.app');
-});
-Route::get('Layouts/index', 'timesController@index')->name('WelcomeMDA');
+Route::get('Times/index', 'timesController@index')->name('WelcomeMDA');
 
-Route::get('Layouts/create', 'timesController@showTable')->name('Insert');
+Route::get('Times/test', 'timesController@test')->name('Test');
+
+Route::get('Times/show', 'timesController@showTable')->name('ShowAct');
+
+Route::get('Times', 'timesController@viewTables')->name('InsertAct');
+Route::post('Times', 'timesController@timesActivity');
+
+
+Route::delete('Times/show/{id}', 'timesController@activityDelete')->name('DeleteActivity');
+
+Route::get('Times/edit/{id}', 'timesController@editBarcode')->name('EditLabel');
+Route::put('Times/edit/{id}', 'timesController@updateBarcode')->name('UpdateBarcode');
 
 
 
-// Route::view('galeria', 'fotos', ['numero' =>125]);
+
+
+
 
 
 
