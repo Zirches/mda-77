@@ -3,24 +3,13 @@
     padding-top: 5%;
   }
 
-  .tableEmployes{
-  	color: #ffffff;
-  	border-color: #1a0000;
-  }
+
   .containertable{
   	width: 100%;
     height: 1000px;
   	padding-top: 5%;
   	padding-left: 2%;
   	padding-right: center;
-    background: rgba(0,102,34,1);
-    background: -moz-linear-gradient(top, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,102,34,1)), color-stop(30%, rgba(0,102,34,1)), color-stop(100%, rgba(255,255,255,1)));
-    background: -webkit-linear-gradient(top, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-    background: -o-linear-gradient(top, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-    background: -ms-linear-gradient(top, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-    background: linear-gradient(to bottom, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006622', endColorstr='#ffffff', GradientType=0 );
   }
 
   
@@ -66,15 +55,54 @@
    box-shadow: 5px 10px 8px 10px #b3b3b3;
    border-radius: 5px;
   }
+  .TimeOn{
+    background: transparent;
+    border: transparent;
+    border-color: transparent;
+    text-align: center;
+    height: 10px;
+   }
+  .TimeOf{
+    background: transparent;
+    border: transparent;
+    border-color: transparent;
+    text-align: center;
+    height: 10px;
+  }
+  .quantitytime{
+    background: transparent;
+    border: transparent;
+    border-color: transparent;
+    text-align: center;
+    height: 10px;
+  }
+  
+  .tableEmployes{
+    color: #ffffff;
+    border-color: #1a0000;
+    text-align: center;
+    width: 100%
+    max-width: 1000px;
+  }
 
   .tableEmployes thead{
   	background: #006622;
+    width: 100%
+    max-width: 1000px;
   }
 
   .tableEmployes tbody{
   	background: #ffffff;
     color: #000000;
+    width: 100%
+    max-width: 1000px;
   }
+
+.quantityTime{
+  height: 5px;
+  width: 5%;
+  text-align: center;
+}
 
 .Separete{
   background: #000000;
@@ -107,27 +135,17 @@
 }
 
 .boderform{
-   background-color: #00cc00;
+   background: #000000;
    color: #fff;
-   box-shadow: 5px 10px 8px 10px #b3b3b3;
+   /*box-shadow: 5px 10px 8px 10px #ffffff;*/
    border-radius: 5px;
-   padding: 10px 2px 15px 10px;
-   background-repeat: no-repeat;
-   background-size: cover;
-   background: rgba(0,102,34,1);
-   background: -moz-linear-gradient(top, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,102,34,1)), color-stop(30%, rgba(0,102,34,1)), color-stop(100%, rgba(255,255,255,1)));
-   background: -webkit-linear-gradient(top, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-   background: -o-linear-gradient(top, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-   background: -ms-linear-gradient(top, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-   background: linear-gradient(to bottom, rgba(0,102,34,1) 0%, rgba(0,102,34,1) 30%, rgba(255,255,255,1) 100%);
-   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006622', endColorstr='#ffffff', GradientType=0 );
+   padding: 5px 3px 15px 10px;
 }
 
   .containerForm{
-    width: 98%;
-    padding-top: 5%;
-    padding-left: 2%;
+    width: 85%;
+    padding-top: 2%;
+    padding-left: 30%;
     padding-right: center;
   }
 
@@ -154,7 +172,8 @@
   border-right: hidden;
   border-width: 1px 0px;
   text-align: center;
-  width: 102%;
+  width: 100%;
+  height: auto;
 }
 
 .form-row .name {
@@ -180,6 +199,13 @@
   align-content: center;
 }
 
+.form-row .valueRelative {
+  width: -webkit-calc(180% - 88px);
+  width: -moz-calc(180% - 88px);
+  width: calc(180% - 88px);
+  width: 500px;
+  align-content: center;
+}
 /*---------------------------------------------------
 padding
 ----------------------------------------------------*/
@@ -198,25 +224,26 @@ padding
    ========================================================================== */
 
 .page-wrapper{
-  width: 70%
+  width: 10%
   max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
 }   
 
 .wrapper {
-  width: 70%
+  width: 10%
   max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
-
 }
 
 .wrapper--w960 {
-  width: 35%;
+  width: 90%;
+  height: 1000%;
   max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
+
 }
 
 /* ==========================================================================
@@ -237,6 +264,8 @@ padding
   text-transform: capitalize;
   font-weight: 700;
   color: #ffffff;
+  width: 50%;
+  height: 100px;
   font-family: inherit;
 }
 
@@ -261,7 +290,7 @@ padding
    ========================================================================== */
   
 .selectForm {
-  width: 50%;
+  width: 30%;
   padding: 10px 20px;
   display: inline-block;
   border: 1px solid #cccccc;
@@ -306,8 +335,11 @@ input[type="time" i] {
   width: 180px;
   text-align: center;
   font-size: 18px;
-
 }
+.date{
+    width: 170px;
+    text-align: center;
+}        
 
 .demo{
   width: 150px;
@@ -369,8 +401,10 @@ input[type="time" i] {
 
 .input-group {
   position: relative;
+
   margin: 0;
 }
+
 /* ==========================================================================
    #TITLE
    ========================================================================== */
@@ -396,13 +430,14 @@ input[type="time" i] {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  box-shadow: 2px 5px 5px 5px #b3b3b3;
-
+  box-shadow: 2px 5px 5px 5px #ffffff;
 }
 
 .card-6 {
   background: #e6e6e6;
   border-radius: 3px;
+  background: black;
+  height: 90%;
 }
 
 
@@ -412,10 +447,11 @@ input[type="time" i] {
 }
 
 .card-6 .card-body {
-  background: #fff;
+  background: #ffffff;
   position: relative;
   border: 1px solid #000000;
   border-bottom: none;
+  height: 100%;
   padding: 20px 0;
   padding-bottom: 0;
   -webkit-border-top-left-radius: 3px;
@@ -430,6 +466,7 @@ input[type="time" i] {
   background: #fff;
   border: 1px solid #000000;
   border-top: none;
+  height: 20%;
   -webkit-border-bottom-left-radius: 3px;
   -moz-border-radius-bottomleft: 3px;
   border-bottom-left-radius: 3px;

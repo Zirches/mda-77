@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMdaModelsTable extends Migration
+class CreateDevelopermodelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMdaModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mda_models', function (Blueprint $table) {
+        Schema::create('developermodels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nameEmployer');
             $table->string('nameModul');
@@ -25,7 +25,7 @@ class CreateMdaModelsTable extends Migration
             $table->string('dateOf');  
             $table->string('status');  
             $table->integer('numTicket')->nullable();
-            $table->float('quantitytime',6,2)->nullable();              
+            $table->float('quantitytime',6,2)->nullable();   
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ class CreateMdaModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mda_models');
+        Schema::dropIfExists('developermodels');
     }
 }

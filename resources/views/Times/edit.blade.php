@@ -1,10 +1,8 @@
-@extends('Layouts.app')
+ @extends('Layouts.app')
 
 @section ('title', 'Print')
 
-
 @section ('body')
-
 <style>
 #particles-js{
   width: 100%;
@@ -23,11 +21,12 @@
   padding-right: center;
 }
 </style>
-
   <div id="particles-js"></div>
-
     <div class="containerBody">
-      <div class="containerForm w3-twothird">
+
+ <div class="containerx">
+
+<div class="containerForm w3-twothird">
       {{-- <div class=" boderform w3-container w3-card w3-white w3-margin-bottom w3-light-grey w3-border w3-border-black"> --}}
          @if( session('mensaje'))
                     <div class="alert alert-success alert-dismissible w3-border w3-border-black">
@@ -52,7 +51,7 @@
                                     <div class="name">*Consultor</div>
                                     <div class="value w3-center">
                                       <select class="selectForm" id="nameEmployer" name="NameEmployer" required>
-                                        <option value=""></option>
+                                        <option value="{{$Activities->nameEmployer}}">{{$Activities->nameEmployer}}</option>
                                         <option value="Baruch Medina" >Baruch Medina</option>
                                         <option value="Jovany Valencia" >Jovany Valencia</option>
                                         <option value="Cesar Mata" >Cesar Mata</option>
@@ -82,7 +81,7 @@
                                     <div class="value w3-center">
                                         <div class="input-group">
                                             <select class="selectForm" id="nameModul" name="NameModul" required>
-                                                  <option value=""></option>                     
+                                                  <option value="{{$Activities->nameModul}}">{{$Activities->nameModul}}</option>                     
                                                   <option value="GL">GL</option>
                                                   <option value="FA(Fixes Assets)">FA (Fixes Assets)</option>
                                                   <option value="OM">OM</option>
@@ -107,7 +106,7 @@
                                     <div class="value">
                                         <div class="input-group w3-center">
                                              <select class="selectForm" id="client" name="Client" required>
-                                                <option value=""></option>                                         
+                                                <option value="{{$Activities->client}}">{{$Activities->client}}</option>                                         
                                                 <option value="Hunan">Hunan</option>
                                                 <option value="Tintorera">Tintorera</option>
                                                 <option value="Grupo SON">Grupo SON</option>
@@ -136,7 +135,7 @@
                                     <div class="name" >*Fecha de Inicio de Actividad.</div>
                                     <div class="value">
                                         <div class="input-group w3-center" st>
-                                            <input class="input--style-6" id="currentDate" value="" type="date" name="DateOn" >
+                                            <input class="input--style-6" id="currentDate" value="{{$Activities->dateOn}}" type="date" name="DateOn" >
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +143,7 @@
                                     <div class="name">*Fecha de Finalización.</div>
                                     <div class="value">
                                         <div class="input-group w3-center">
-                                            <input class="input--style-6 w3-center" id="finalDate"  value="" type="date" name="DateOf"  >
+                                            <input class="input--style-6 w3-center" id="finalDate"  value="{{$Activities->dateOf}}" type="date" name="DateOf"  >
                                        </div>
                                     </div>
                                 </div>
@@ -152,7 +151,7 @@
                                     <div class="name">*Hora de Registro.</div>
                                     <div class="value">
                                         <div class="input-group w3-center">
-                                            <input class="input--style-6 w3-center" id="demo" value="" onload="startTime()"  type="text" name="TimeOn">
+                                            <input class="input--style-6 w3-center" id="demo" value="{{$Activities->timeOn}}" onload="startTime()"  type="text" name="TimeOn">
                                         </div>
                                     </div>
                                 </div>
@@ -160,12 +159,13 @@
                                     <div class="name">*Tiempo estimado.</div>
                                     <div class="value w3-center" >
                                           <center>
-                                          <div class="input-group date" id="datetimepicker3" >
-                                              <input type='text' class="form-control input--style-6"  style="width: 150px;" value="" name="TimeOf" />
-                                              <span class="input-group-addon"> 
-                                                  <span class="glyphicon glyphicon-time" ></span>
-                                              </span>
-                                          </div>
+                                              <div class='input-group date' id='datetimepicker8' style="width: 200px;"  name="TimeOf">
+                                                  <input type='text' name="TimeOf" required class="form-control" value="{{$Activities->timeOf}}" />
+                                                  <span class="input-group-addon">
+                                                  <span class="fa fa-calendar">
+                                                  </span>
+                                                  </span>
+                                              </div>
                                           </center>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                     <div class="name">*Tiempo total.</div>
                                     <div class="value">
                                         <div class="input-group w3-center">
-                                          <input type="text" name="quantitytime" value="" class="input--style- w3-center" pattern="[0-9]{1,9}" id="quantitytime">
+                                          <input type="text" name="quantitytime" value="{{$Activities->quantitytime}}" class="input--style- w3-center" pattern="[0-9]{1,9}" id="quantitytime">
                                        </div>
                                     </div>
                                 </div>  
@@ -182,7 +182,7 @@
                                     <div class="value">
                                         <div class="input-group w3-center">
                                              <select class="selectForm" name="Status" >
-                                                <option value=""></option>
+                                                <option value="{{$Activities->status}}">{{$Activities->status}}</option>
                                                 <option value="En Proceso">En Proceso</option>
                                                 <option value="Pruebas">Pruebas</option>
                                                 <option value="Validación de Usuario">Validación de Usuario</option>
@@ -197,7 +197,7 @@
                                     <div class="value w3-center">
                                         <div class="input-group">
                                           <select class="selectForm" name="nameAct" onchange="otherSelect()">
-                                            <option value=""></option>                                         
+                                            <option value="{{$Activities->nameAct}}">{{$Activities->nameAct}}</option>                                         
                                               <option value="Diseño" >Diseño</option>
                                               <option value="Cargas Masivas">Cargas Masivas</option>
                                               <option value="Apoyo">Apoyo</option>
@@ -225,7 +225,7 @@
                                     <div class="name">*Numero de Ticket.</div>                                  
                                     <div class="valueTicket">
                                         <div class="input-group">
-                                           <input class="input--style-6" id="" value=""  type="text" name="NumTicket" placeholder="" >
+                                           <input class="input--style-6" id="" value="{{$Activities->numTicket}}"  type="text" name="NumTicket" placeholder="" >
                                         </div>
                                     </div>
                                 </div>                           
@@ -243,8 +243,20 @@
         </div>      
     </div>    
   </div>  
-    </div>
-    <script type="text/javascript">
+
+      <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker8').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+            });
+        });
+    </script>
+      <script type="text/javascript">
         <!--
             function otherSelect() {
                 var other = document.getElementById("NumTicket");
@@ -257,9 +269,7 @@
             }
         //-->
     </script>
-
   <script src="../js/particles.js"></script>
   <script src="../js/app.js"></script>
-
 
 @endsection

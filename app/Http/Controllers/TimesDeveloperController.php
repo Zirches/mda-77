@@ -1,49 +1,50 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use App\MdaModel;
+use App\Developermodel;
 use DB;
 
-class timesController extends Controller
+class TimesDeveloperController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    { 
 
-       return view('Times.index'); 
-    }
 
-    public function showTable(Request $request)
+    public function showTableD(Request $request)
     {
 
-      $Activities = MdaModel::all()
+      // $Activities = DB::table('mda_models')
+      //       ->select('id','nameEmployer','nameModul','client','dateOn','dateOf','timeOn','timeOf','status','nameAct','numTicket')
+      //       ->where('status', '<>','Finalizado')
+      //       ->get();
+      $Activity = Developermodel::all()
                       ->where('status', '<>','Finalizado');
-      return view('Times.show',compact('Activities'));
+      return view('Developer.show',compact('Activity'));
 
 
     }
 
-    public function test()
+    public function testD()
     {
-      $Activities = MdaModel::all();
+      $Activities = Developermodel::all();
 
-      return view('Times.test',compact('Activities'));
+      return view('Developer.test',compact('Activities'));
     }
  
  
-    public function viewTables()
+    public function viewTablesD()
     {
-       return view('Times.create'); 
+       return view('Developer.create'); 
     } 
 
-    public function timesActivity(Request $request)
+    public function timesActivityD(Request $request)
     {
-          $Activity = new MdaModel();
+          $Activity = new Developermodel();
           $Activity->nameEmployer = $request->input('NameEmployer');
           $Activity->nameModul = $request->input('NameModul');
           $Activity->client = $request->input('Client');
@@ -55,28 +56,29 @@ class timesController extends Controller
           $Activity->nameAct = $request->input('nameAct');
           $Activity->numTicket = $request->input('NumTicket');
           $Activity->quantitytime = $request->input('quantitytime');
+          // return $request; 
           $Activity->save();
           return back()->with('mensaje', 'Registo creado');
     }
 
-    public function activityDelete($id)
+    public function activityDeleteD($id)
     {    
-        $Activity = MdaModel::findOrFail($id);
+        $Activity = Developermodel::findOrFail($id);
         $Activity->delete();
 
-        $Activities = MdaModel::all();
-        return view('Times.show',compact('Activities'))->with('mensaje2', 'Registo Eliminado');
+        $Activities = Developermodel::all();
+        return view('Developer.show',compact('Activities'))->with('mensaje2', 'Registo Eliminado');
     }
 
-    public function activityEdit($id)
+    public function activityEditD($id)
     {
-        $Activities = MdaModel::findOrFail($id);
-        return view ('Times.edit', compact('Activities'));
+        $Activities = Developermodel::findOrFail($id);
+        return view ('Developer.edit', compact('Activities'));
     }
 
-    public function updateActivity(Request $request,$id)
+    public function updateActivityD(Request $request,$id)
     {
-         $Activity = MdaModel::findOrFail($id);
+         $Activity = Developermodel::findOrFail($id);
           $Activity->nameEmployer = $request->NameEmployer;
           $Activity->nameModul = $request->NameModul;
           $Activity->client = $request->Client;
@@ -87,14 +89,13 @@ class timesController extends Controller
           $Activity->status = $request->Status;
           $Activity->nameAct = $request->nameAct;
           $Activity->numTicket = $request->NumTicket;
-          $Activity->quantitytime = $request->quantitytime;       
+          $Activity->quantitytime = $request->quantitytime;
           $Activity->save();
 
         // return back()->with('mensaje', 'Registo Modificado');
-         $Activities = MdaModel::all()
+         $Activities = Developermodel::all()
                      ->where('status', '<>','Finalizado');
-         return view('Times.show',compact('Activities'));
+         return view('Developer.show',compact('Activities'));
 
     }
-
 }

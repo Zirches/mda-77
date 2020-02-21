@@ -1,10 +1,9 @@
-@extends('Layouts.app')
+ @extends('Layouts.app')
 
 @section ('title', 'Print')
 
 
 @section ('body')
-
 <style>
 #particles-js{
   width: 100%;
@@ -24,10 +23,13 @@
 }
 </style>
 
-  <div id="particles-js"></div>
+<div id="particles-js"></div>
 
-    <div class="containerBody">
-      <div class="containerForm w3-twothird">
+   <div class="containerBody">
+
+ <div class="containerx">
+
+<div class="containerForm w3-twothird">
       {{-- <div class=" boderform w3-container w3-card w3-white w3-margin-bottom w3-light-grey w3-border w3-border-black"> --}}
          @if( session('mensaje'))
                     <div class="alert alert-success alert-dismissible w3-border w3-border-black">
@@ -41,18 +43,17 @@
                         <div class="card-heading">
                             <h2 class="titleAct">
                               <i class="fas fa-user-plus w3-large w3-margin-right"></i>         
-                              Modificación de Actividades MDA
+                              Registro de Actividades de Desarrollo
                             </h2>  
                         </div>
-                          <form class="form-group"  method="POST" action="" >
-                           @method('PUT')
-                           @csrf  
+                       <form class="form-group" name="FormLabel" id="FormLabel" method="POST" action="/Developer" >
+                            @csrf
                             <div class="card-body">
                                 <div class="form-row w3-center">
                                     <div class="name">*Consultor</div>
                                     <div class="value w3-center">
                                       <select class="selectForm" id="nameEmployer" name="NameEmployer" required>
-                                        <option value=""></option>
+                                        <option value="">Seleccionar</option>
                                         <option value="Baruch Medina" >Baruch Medina</option>
                                         <option value="Jovany Valencia" >Jovany Valencia</option>
                                         <option value="Cesar Mata" >Cesar Mata</option>
@@ -82,7 +83,7 @@
                                     <div class="value w3-center">
                                         <div class="input-group">
                                             <select class="selectForm" id="nameModul" name="NameModul" required>
-                                                  <option value=""></option>                     
+                                                <option value="">Seleccionar</option>                     
                                                   <option value="GL">GL</option>
                                                   <option value="FA(Fixes Assets)">FA (Fixes Assets)</option>
                                                   <option value="OM">OM</option>
@@ -107,7 +108,7 @@
                                     <div class="value">
                                         <div class="input-group w3-center">
                                              <select class="selectForm" id="client" name="Client" required>
-                                                <option value=""></option>                                         
+                                                <option value="">Seleccionar</option>                                         
                                                 <option value="Hunan">Hunan</option>
                                                 <option value="Tintorera">Tintorera</option>
                                                 <option value="Grupo SON">Grupo SON</option>
@@ -136,7 +137,7 @@
                                     <div class="name" >*Fecha de Inicio de Actividad.</div>
                                     <div class="value">
                                         <div class="input-group w3-center" st>
-                                            <input class="input--style-6" id="currentDate" value="" type="date" name="DateOn" >
+                                            <input class="input--style-6" id="currentDate"  type="date" name="DateOn" >
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +145,7 @@
                                     <div class="name">*Fecha de Finalización.</div>
                                     <div class="value">
                                         <div class="input-group w3-center">
-                                            <input class="input--style-6 w3-center" id="finalDate"  value="" type="date" name="DateOf"  >
+                                            <input class="input--style-6 w3-center" id="finalDate"  type="date" name="DateOf"  >
                                        </div>
                                     </div>
                                 </div>
@@ -152,7 +153,7 @@
                                     <div class="name">*Hora de Registro.</div>
                                     <div class="value">
                                         <div class="input-group w3-center">
-                                            <input class="input--style-6 w3-center" id="demo" value="" onload="startTime()"  type="text" name="TimeOn">
+                                            <input class="input--style-6 w3-center" id="demo"  onload="startTime()"  type="text" name="TimeOn">
                                         </div>
                                     </div>
                                 </div>
@@ -160,29 +161,22 @@
                                     <div class="name">*Tiempo estimado.</div>
                                     <div class="value w3-center" >
                                           <center>
-                                          <div class="input-group date" id="datetimepicker3" >
-                                              <input type='text' class="form-control input--style-6"  style="width: 150px;" value="" name="TimeOf" />
-                                              <span class="input-group-addon"> 
-                                                  <span class="glyphicon glyphicon-time" ></span>
-                                              </span>
-                                          </div>
+                                                <div class='input-group date' id='datetimepicker8' style="width: 200px;">
+                                                    <input type='text' name="TimeOf" required class="form-control" />
+                                                    <span class="input-group-addon">
+                                                        <span class="fa fa-calendar">
+                                                        </span>
+                                                    </span>
+                                                </div>
                                           </center>
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="name">*Tiempo total.</div>
-                                    <div class="value">
-                                        <div class="input-group w3-center">
-                                          <input type="text" name="quantitytime" value="" class="input--style- w3-center" pattern="[0-9]{1,9}" id="quantitytime">
-                                       </div>
-                                    </div>
-                                </div>  
                                 <div class="form-row">
                                     <div class="name">*Estatus.</div>
                                     <div class="value">
                                         <div class="input-group w3-center">
                                              <select class="selectForm" name="Status" >
-                                                <option value=""></option>
+                                                <option value="">Seleccionado</option>
                                                 <option value="En Proceso">En Proceso</option>
                                                 <option value="Pruebas">Pruebas</option>
                                                 <option value="Validación de Usuario">Validación de Usuario</option>
@@ -192,12 +186,20 @@
                                        </div>
                                     </div>
                                 </div>  
+                                <div class="form-row" style="display: none" >
+                                    <div class="name">*Tiempo total.</div>
+                                    <div class="value">
+                                        <div class="input-group w3-center">
+                                          <input type="text" name="quantitytime" value="0" class="input--style-6" pattern="[0-9]{1,9}" id="quantitytime">
+                                       </div>
+                                    </div>
+                                </div>  
                                  <div class="form-row">
                                     <div class="name">*Actividad</div>
                                     <div class="value w3-center">
                                         <div class="input-group">
                                           <select class="selectForm" name="nameAct" onchange="otherSelect()">
-                                            <option value=""></option>                                         
+                                            <option value="">Seleccionar</option>                                         
                                               <option value="Diseño" >Diseño</option>
                                               <option value="Cargas Masivas">Cargas Masivas</option>
                                               <option value="Apoyo">Apoyo</option>
@@ -225,7 +227,7 @@
                                     <div class="name">*Numero de Ticket.</div>                                  
                                     <div class="valueTicket">
                                         <div class="input-group">
-                                           <input class="input--style-6" id="" value=""  type="text" name="NumTicket" placeholder="" >
+                                           <input class="input--style-6" id="" value="0"  type="text" name="NumTicket" placeholder="" >
                                         </div>
                                     </div>
                                 </div>                           
@@ -234,17 +236,16 @@
                         <div class="card-footer w3-center">
                             <button class="btn btn--radius-2 btn--green"  type="submit">Guardar</button>
                         </div>                      
-                    </div>
-            </div>
+
          </form> 
 
-        {{-- </div>       --}}
+        </div>      
 
         </div>      
-    </div>    
   </div>  
-    </div>
-    <script type="text/javascript">
+
+
+      <script type="text/javascript">
         <!--
             function otherSelect() {
                 var other = document.getElementById("NumTicket");
@@ -258,8 +259,91 @@
         //-->
     </script>
 
+  <script>
+    function restarHoras() {
+
+  inicio = document.getElementById("TimeOn").value;
+  fin = document.getElementById("TimeOf").value;
+  
+  inicioMinutos = parseInt(inicio.substr(3,2));
+  inicioHoras = parseInt(inicio.substr(0,2));
+  
+  finMinutos = parseInt(fin.substr(3,2));
+  finHoras = parseInt(fin.substr(0,2));
+
+  transcurridoMinutos = finMinutos - inicioMinutos;
+  transcurridoHoras = finHoras - inicioHoras;
+  
+  if (transcurridoMinutos < 0) {
+    transcurridoHoras--;
+    transcurridoMinutos = 60 + transcurridoMinutos;
+  }
+  
+  horas = transcurridoHoras.toString();
+  minutos = transcurridoMinutos.toString();
+  
+  if (horas.length < 2) {
+    horas = "0"+horas;
+  }
+  
+  if (minutos.length < 2) {
+    minutos = "0"+minutos;
+  }
+  
+  document.getElementById("quantitytime").value = horas+":"+minutos;
+
+}
+</script>
+
+<script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  var ampm = "am";
+
+  m = checkTime(m);
+  s = checkTime(s);
+  
+  if( h > 12 ) {
+      h -= 12;
+      ampm = "pm";
+  } 
+
+
+  document.getElementById('demo').value = h + ":" + m + ":" + s + " "+ ampm;
+  var t = setTimeout(startTime, 500);
+  
+  var fecha = new Date(); //Fecha actual
+  var mes = fecha.getMonth()+1; //obteniendo mes
+  var dia = fecha.getDate(); //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año
+  if(dia<10)
+    dia='0'+dia; //agrega cero si el menor de 10
+  if(mes<10)
+    mes='0'+mes //agrega cero si el menor de 10
+  document.getElementById('currentDate').value=ano+"-"+mes+"-"+dia;
+  document.getElementById('finalDate').value=ano+"-"+mes+"-"+dia;
+  
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker8').datetimepicker({
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-arrow-up",
+                down: "fa fa-arrow-down"
+            }
+        });
+    });
+</script>
   <script src="../js/particles.js"></script>
   <script src="../js/app.js"></script>
-
-
 @endsection

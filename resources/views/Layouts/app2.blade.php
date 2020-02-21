@@ -18,20 +18,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>    
-<style type="text/css" media="screen">
-  .containarBody{
-  max-width:1400%;
-  padding-top: 4%;
-  }
-</style>    
 
 <body class="w3-light-grey">
+<style>
+#particles-js{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  background: #000000;
+}
+.containerBody{
+  width: 100%;
+  max-width:1400%;
+  position: relative;
+  z-index: 99;
+  padding-top: 6%;
+  padding-left: 2%;
+  padding-right: center;
+}
+</style>
 
 @yield('pageContainer')
 
 
+  <div id="particles-js"></div>
+
           <!-- Page Container -->
-          <div class="containarBody ">
+          <div class="containerBody">
 
             <!-- The Grid -->
             <div class="w3-row-padding">
@@ -181,6 +195,8 @@
           </footer>
   
 
+  <script src="../js/particles.js"></script>
+  <script src="../js/app.js"></script>
 
 
 

@@ -4,6 +4,7 @@
 
 
 @section ('body')
+
 <style>
 #particles-js{
   width: 100%;
@@ -23,11 +24,11 @@
 </style>
   <div id="particles-js"></div>
     <div class="containerBody">
-      
+    
     <div class="containertable ">
       <div class="bodertable w3-container w3-card w3-white w3-margin-bottom w3-light-grey w3-border w3-border-black">
         <h2 class="w3-text-grey w3-center w3-padding-16"><i class="fas fa-user-plus fa-fw w3-margin-right w3-xxlarge w3-text-teal">          
-        </i>Registro de Actividades MDA</h2>
+        </i>Registro de Actividades de Proyectos</h2>
          @if( session('mensaje2'))
                     <div class="alert alert-danger alert-dismissible w3-border w3-border-black">
                        <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -44,9 +45,10 @@
                     <th scope="col" class="w3-center">Consultor</th>
                     <th scope="col" class="w3-center">Módulo</th>
                     <th scope="col" class="w3-center">Cliente</th>
+                    <th scope="col" class="w3-center">Proyecto</th>
                     <th scope="col" class="w3-center">Fecha Inicio</th> 
-                    {{-- <th scope="col" class="w3-center">Fecha Final</th>  --}}
-                    {{-- <th scope="col" class="w3-center">Hora Inicio</th> --}}
+{{--                     <th scope="col" class="w3-center">Fecha Final</th> 
+                    <th scope="col" class="w3-center">Hora Inicio</th> --}}
                     <th scope="col" class="w3-center">Tiempo Estimado</th>  
                     <th scope="col" class="w3-center">Estatus</th>                    
                     <th scope="col" class="w3-center">Actividad</th>                    
@@ -57,34 +59,35 @@
                   </tr>
                 </thead>
                 <tbody class="w3-border w3-border-black">
-                  @foreach($Activities as $act)                  
+                  @foreach($Activity as $act)                  
                     <tr>
                       <th scope="row" class="w3-center" style="display: none">{{$act->id}}</th>
                       <td class="w3-center">{{$act->nameEmployer}}</td>
                       <td class="w3-center">{{$act->nameModul}}</td>  
+                      <td class="w3-center">{{$act->NameProyect}}</td>  
                       <td class="w3-center">{{$act->client}}</td>  
                       <td class="w3-center">{{$act->dateOn}}</td> 
-                      {{-- <td class="w3-center">{{$act->dateOf}}</td>   --}}
-                      {{-- <td class="w3-center"><input type="text" name="TimeOn" class="TimeOn" value="{{$act->timeOn}}" disabled pattern="[0-9]{1,9}" id="TimeOn"></td>   --}}
-                      <td class="w3-center"><input type="text" name="TimeOf" class="TimeOf" style="width: 190px;" value="{{$act->timeOf}}" disabled pattern="[0-9]{1,9}" id="TimeOf"></td>  
+                     {{--  <td class="w3-center">{{$act->dateOf}}</td>  
+                      <td class="w3-center"><input type="text" name="TimeOn" class="TimeOn" value="{{$act->timeOn}}" disabled pattern="[0-9]{1,9}" id="TimeOn"></td>  --}} 
+                      <td class="w3-center"><input type="text" name="TimeOf" class="TimeOf" value="{{$act->timeOf}}" style="width: 200px;" disabled pattern="[0-9]{1,9}" id="TimeOf"></td>  
                       <td class="w3-center">{{$act->status}}</td>                        
                       <td class="w3-center">{{$act->nameAct}}</td> 
                       <td class="w3-center">{{$act->numTicket}}</td> 
-                      <td class="w3-center"><input type="text" name="quantitytime" value="{{$act->quantitytime}}"  disabled class="quantitytime w3-center" pattern="[0-9]{1,9}" id="quantitytime"></td> 
+                      <td class="w3-center"><input type="text" name="quantitytime" class="quantitytime" value="{{$act->quantitytime}}" disabled pattern="[0-9]{1,9}" id="quantitytime"></td> 
                       <td class="w3-center">    
 
                         <a  href="" style="color: black"><i class="fa fa-trash fa-1x w3-margin-right w3-center  fa-1x">                     
                       </td>
                       <td class="w3-center">
-                        <a  href="{{ route('EditAct', $act) }}" style="color: black"><i class="fas fa-pencil-alt w3-margin-right w3-center  fa-1x">                     
+                        <a  href="{{ route('EditActP', $act) }}" style="color: black"><i class="fas fa-pencil-alt w3-margin-right w3-center  fa-1x">                     
                       </td>
                     </tr>
                   @endforeach                      
                 </tbody>
               </table>
              <br> 
-       </div>
-       </div>       
+  </div>
+</div>
 
 <script>
 function myFunction() {
@@ -148,8 +151,6 @@ window.onload = function(){
   fin = document.getElementById("TimeOf").value; 
 }
 </script>
-
   <script src="../js/particles.js"></script>
   <script src="../js/app.js"></script>
-
 @endsection
